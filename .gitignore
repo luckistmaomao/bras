@@ -1,0 +1,4 @@
+*yaml
+*pyc
+src/requests/*
+src/yaml/*
