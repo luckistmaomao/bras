@@ -32,11 +32,14 @@ def connect_bras(opts):
         password = opts.password
     else:
         password = PASSWORD
-    print username,password,type(password)
-    url = 'http://p.nju.edu.cn/portal/portal_io.do'
-    formdata= 'action=login&username=%s&password=%s' % (username, password)
+    print username,password
+    url = 'http://p.nju.edu.cn/portal_io/login'
+    formdata= 'username=%s&password=%s' % (username, password)
+    url = url + '?' + formdata
+    print formdata
     try:
-        r = requests.post(url, data=formdata)
+        #r = requests.post(url, data=formdata)
+        r = requests.get(url)
         content = r.content
         print content
     except:
